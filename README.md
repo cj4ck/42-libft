@@ -1,1 +1,1 @@
-### Hello, this is reuploaded very simple version of libft.
+### Hello, this is my very simple version of libft.
