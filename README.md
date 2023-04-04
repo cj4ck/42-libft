@@ -1,4 +1,3 @@
-### Hello, this is my very simple version of libft.
 # Libft
 #💾/42/Core_Curriculum/libft #📝/Computer_Science/Programming/C
 - »  [[C Makefiles]]
