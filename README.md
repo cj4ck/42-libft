@@ -1,5 +1,9 @@
 # Libft
-#💾/42/Core_Curriculum/libft #📝/Computer_Science/Programming/C
+#💾/42/Core_Curriculum/libft 
+#📝/Computer_Science/Programming/C
+
+# General concepts of the project
+- Goal of this project was to program my very first library containing my own implementations of functions from standard C libraries. I have gained better understanding of how all of it works. It was also my first encouter with Makefiles and headerfiles. This was my first project in 42Core_Curriculum.
 - »  [[C Makefiles]]
 - »  [[C Header Files]]
 
@@ -55,3 +59,4 @@
 - `ft_lstclear`  - deletes and free list.
 - `ft_lstiter` - applies a function to each element of a list.
 - `ft_lstmap` - applies a function to each element of a list. 
+
