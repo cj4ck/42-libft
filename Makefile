@@ -13,9 +13,15 @@
 CC		=	gcc
 CFLAGS 	=	-Wall -Wextra -Werror -Iinclude
 NAME	=	libft.a
-SRC		=	$(shell find src/ -iname "*.c")
-OBJ		=	$(src:.c=.o)
+AR		=	ar rcs
+SRC		=	$(shell find src -iname "*.c")
+OBJ		=	$(SRC:.c=.o)
 
+$(NAME): $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
+	@echo '$(NAME) created.'
+
+# ar rcs $(NAME) $(OBJ)
 ascii-art:
 	@echo "\033[38;5;51m   _____ ________           .____    ._____.    _____  __   "
 	@echo "\033[38;5;87m  /  |  |\\_____  \\          |    |   |__\\_ |___/ ____\\/  |_ "
@@ -24,14 +30,10 @@ ascii-art:
 	@echo "\033[38;5;195m\\____   |\\_______ \\         |_______ \\__||___  /__|   |__|  "
 	@echo "\033[38;5;231m     |__|        \\/                 \\/       \\/  "
 
-$(NAME):	$(obj)
-	ar rcs $(NAME) $(obj)
-	@echo "$(NAME) created"
-
-# all: $(NAME)
+all: $(NAME)
 
 clean:
-	rm -rf $(obj) $(b_obj)
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
