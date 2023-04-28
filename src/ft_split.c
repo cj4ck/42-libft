@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:00:15 by cjackows          #+#    #+#             */
-/*   Updated: 2022/06/21 18:29:42 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:23:52 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ft_wordcount(char const *str, char c)
  * @return ** char - The array of new strings resulting from the split.
 NULL if the allocation fails.
  */
-char	**ft_split(const char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	char	**tab_str;

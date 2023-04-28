@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:27:00 by cjackows          #+#    #+#             */
-/*   Updated: 2022/06/19 15:57:31 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:24:27 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
  * freeing at some point).
  * If the allocation failed returns NULL.
  */
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(char *s1)
 {
 	char	*output_str;
 	int		i;
