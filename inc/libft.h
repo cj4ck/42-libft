@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:24:51 by cjackows          #+#    #+#             */
-/*   Updated: 2023/04/11 15:07:11 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:20:37 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -45,7 +50,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr(char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -53,12 +58,12 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
-char	*ft_strdup(const char *s1);
+char	*ft_strdup(char *s1);
 
 // --- PART 2 ---
 
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
@@ -86,5 +91,11 @@ int		ft_printf(const char *str, ...);
 int		ft_print(char c, char *str);
 int		ft_putnbr(const char *c, int base, size_t nbr);
 int		ft_pointer(const char *hex, size_t ptr);
+
+// --- GNL ---
+char	*get_next_line(int fd);
+char	*read_file(int fd, char *main_str);
+char	*return_func(char *main_str);
+char	*reset(char *main_str);
 
 #endif
