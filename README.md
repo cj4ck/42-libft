@@ -94,7 +94,7 @@ The Makefile uses the following compilation flags:
 > Recoded `printf()` from `<stdio.h>`
 - [`int ft_printf(const char *str, ...);`](https://github.com/cj4ck/42-libft/blob/master/src/ft_printf.c) - Format and print data to the standard output.
 
-### Functions from project [`ft_get_next_line`](https://github.com/cj4ck/42-get_next_line) 
+### Functions from project [`get_next_line`](https://github.com/cj4ck/42-get_next_line) 
 > Function that reads from the file and returns a new line.
 - [`char	*get_next_line(int fd);`](https://github.com/cj4ck/42-libft/blob/master/src/get_next_line.c) - Read buffer size from fd (up untill string end) and returns a line.
 
