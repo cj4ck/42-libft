@@ -6,11 +6,11 @@
 /*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 19:20:49 by cjackows          #+#    #+#             */
-/*   Updated: 2023/05/23 21:13:13 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/05/23 21:36:00 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/libft.h"
 
 void print_terminal_colors(void)
 {
