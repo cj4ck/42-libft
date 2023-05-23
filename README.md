@@ -90,14 +90,11 @@ The Makefile uses the following compilation flags:
 - [`void ft_lstiter(t_list *lst, void (*f)(void *));`](https://github.com/cj4ck/42-libft/blob/master/src/ft_lstiter.c) - Apply a function to each node of a linked list.
 - [`t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));`](https://github.com/cj4ck/42-libft/blob/master/src/ft_lstmap.c) - Apply a function to each node of a linked list, creating a new list based on the results.
 
-### Functions from project [`ft_printf`](https://github.com/cj4ck/42-ft_printf)
-> Recoded `printf()` from `<stdio.h>`
+### Functions from project [`ft_printf`](https://github.com/cj4ck/42-ft_printf) `printf()` from `<stdio.h>`
 - [`int ft_printf(const char *str, ...);`](https://github.com/cj4ck/42-libft/blob/master/src/ft_printf.c) - Format and print data to the standard output.
 
 ### Functions from project [`get_next_line`](https://github.com/cj4ck/42-get_next_line) 
-> Function that reads from the file and returns a new line.
 - [`char	*get_next_line(int fd);`](https://github.com/cj4ck/42-libft/blob/master/src/get_next_line.c) - Read buffer size from fd (up untill string end) and returns a line.
 
 ### Functions from project [`42-color`](https://github.com/cj4ck/42-color) 
-> Function that reads from the file and returns a new line.
 - [`void print_terminal_colors(void);`](https://github.com/cj4ck/42-libft/blob/master/src/print_terminal_colors.c) - Prints possible printf colors in temrinal
