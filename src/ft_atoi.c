@@ -6,7 +6,7 @@
 /*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 19:05:23 by cjackows          #+#    #+#             */
-/*   Updated: 2023/04/15 12:44:18 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/05/24 14:08:16 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
  */
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int		i;
+	int		result;
+	int		sign;
 
 	result = 0;
 	sign = 1;
@@ -49,13 +49,36 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
+long	ft_atol(const char *str)
+{
+	long		i;
+	long		result;
+	int		sign;
+
+	result = 0;
+	sign = 1;
+	i = 0;
+	while ((str[i] == ' ') || ((str[i] >= 9) && (str[i] <= 13)))
+		i++;
+	if ((str[i] == '-') || (str[i] == '+'))
+	{
+		if (str[i] == '-')
+			sign = sign * -1;
+		i++;
+	}
+	while ((str[i] >= '0') && (str[i] <= '9'))
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
+}
 // int	main(void)
 // {
-// 	const char str[] = "-3 45f";
-// 	int res;
-// 	int lib;
-// 	res = ft_atoi(str);
-// 	lib = atoi(str);
+// 	long res;
+// 	long lib;
+// 	res = ft_atoi("2147483648");
+// 	lib = atoi("214748364");
 // 	printf("num: %d\n", res);
 // 	printf("lib: %d\n", lib);
 // 	return 0;
