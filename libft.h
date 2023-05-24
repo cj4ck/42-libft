@@ -6,7 +6,7 @@
 /*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:24:51 by cjackows          #+#    #+#             */
-/*   Updated: 2023/05/23 21:22:54 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:45:54 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int		ft_putnbr(const char *c, int base, size_t nbr);
 int		ft_pointer(const char *hex, size_t ptr);
 
 // --- 42-color ---
-void print_terminal_colors(void);
+void	print_terminal_colors(void);
 
 #endif
