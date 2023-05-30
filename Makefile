@@ -37,9 +37,9 @@ TOTAL_PROGRESS = $(words $(OBJECTS))
 
 .PHONY: all clean fclean re
 
-all: $(NAME)
+all: ascii-art $(NAME)
 
-$(NAME): ascii-art $(OBJECTS)
+$(NAME): $(OBJECTS)
 	@$(AR) $(NAME) $(OBJECTS)
 	@echo "$(INFO)$@ has been created$(RESET)"
 
