@@ -3,39 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:00:15 by cjackows          #+#    #+#             */
-/*   Updated: 2023/04/28 14:23:52 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:51:51 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-/**
- * @brief Counts "words" between delimiters.
- * @param s The string to be split.
- * @param c The delimiter character.
- * @return size_t of "words"
- */
-static int	ft_wordcount(char const *str, char c)
+static int	get_lentht_of_part(char const *s, char c)
 {
 	int	i;
-	int	count;
 
-	if (str == 0 || str[0] == 0)
-		return (0);
-	i = 1;
-	count = 0;
-	if (str[0] != c)
-		count++;
-	while (str[i] != '\0')
-	{
-		if (str[i] != c && str[i - 1] == c)
-			count++;
+	i = 0;
+	while (s[i] && s[i] != c)
 		i++;
+	return (i);
+}
+
+int	ft_get_number_of_words(char const *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (*s)
+	{
+		while (*s != '\0' && *s == c)
+			s++;
+		if (*s)
+			i++;
+		while (*s != '\0' && *s != c)
+			s++;
 	}
-	return (count);
+	return (i);
+}
+
+static int	get_word(char	**result, int i, char const *s, char c)
+{
+	int		lentht_of_word;
+
+	lentht_of_word = get_lentht_of_part(s, c);
+	result[i] = (char *)malloc(lentht_of_word + 1);
+	if (!result[i])
+	{
+		while (--i >= 0)
+		{
+			free(result[i]);
+		}
+		free(result);
+		return (0);
+	}
+	ft_memcpy(result[i], s, (unsigned long)lentht_of_word);
+	result[i][lentht_of_word] = '\0';
+	return (1);
 }
 
 /**
@@ -47,33 +68,30 @@ static int	ft_wordcount(char const *str, char c)
  * @return ** char - The array of new strings resulting from the split.
 NULL if the allocation fails.
  */
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
+	char	**result;
 	int		i;
-	char	**tab_str;
-	size_t	word_len;
-	int		len;
 
-	len = ft_wordcount(s, c);
-	tab_str = malloc(sizeof(*tab_str) * (len + 1));
-	if (s == 0 || tab_str == 0)
+	result = (char **)malloc((ft_get_number_of_words(s, c) + 1) * sizeof(char *));
+	if (!result)
 		return (0);
 	i = 0;
 	while (*s)
 	{
 		while (*s == c && *s)
 			s++;
-		if (!*s)
-			break ;
-		if (!ft_strchr(s, c))
-			word_len = ft_strlen(s);
-		else
-			word_len = ft_strchr(s, c) - s;
-		tab_str[i++] = ft_substr(s, 0, word_len);
-		s += word_len;
+		if (*s)
+		{
+			if (!get_word(result, i, s, c))
+				return (0);
+			i++;
+		}
+		while (*s != c && *s)
+			s++;
 	}
-	tab_str[i] = NULL;
-	return (tab_str);
+	result[i] = 0;
+	return (result);
 }
 
 // int	main()

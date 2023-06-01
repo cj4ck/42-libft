@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 19:05:23 by cjackows          #+#    #+#             */
-/*   Updated: 2023/05/24 14:13:28 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:50:07 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ long	ft_atol(const char *str)
 {
 	long		i;
 	long		result;
-	int		sign;
+	int			sign;
 
 	result = 0;
 	sign = 1;
