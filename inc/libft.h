@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:24:51 by cjackows          #+#    #+#             */
-/*   Updated: 2023/06/01 10:24:21 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:06:02 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,10 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <stdio.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <stddef.h>
-# include <stdlib.h>
-# include <stdint.h>
 # include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <limits.h>
 
 typedef struct s_list
 {

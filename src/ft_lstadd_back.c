@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
+/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:21:51 by cjackows          #+#    #+#             */
-/*   Updated: 2023/06/01 10:02:39 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:30:17 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
