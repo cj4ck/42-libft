@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstpenultimate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/12 17:21:51 by cjackows          #+#    #+#             */
-/*   Updated: 2023/06/01 10:02:39 by cjackows         ###   ########.fr       */
+/*   Created: 2023/06/01 10:04:23 by cjackows          #+#    #+#             */
+/*   Updated: 2023/06/01 10:21:33 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../inc/libft.h"
 
-/**
- * @brief Adds the node ’new’ at the end of the list.
- * 
- * @param lst  The address of a pointer to the first link of a list
- * @param new  The address of a pointer to the node to be added to the list
- */
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list	*ft_lstpenultimate(t_list *lst)
 {
 	t_list	*tmp;
 
-	if (!*lst)
-	{
-		*lst = new;
-	}
-	else
-	{
-		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
-	}
+	if (!lst)
+		return (0);
+	tmp = lst;
+	while (tmp->next->next)
+		tmp = tmp->next;
+	return (tmp);
 }

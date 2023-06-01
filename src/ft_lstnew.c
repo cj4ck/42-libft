@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:20:15 by cjackows          #+#    #+#             */
-/*   Updated: 2022/06/21 18:50:45 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:17:55 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,24 @@
  * @param content The content to create the node with.
  * @return t_list* The new node.
  */
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
-	t_list	*node;
+	t_list	*result;
 
-	node = malloc(sizeof(t_list) * 1);
-	if (!node)
-		return (NULL);
-	node -> content = content;
-	node -> next = NULL;
-	return (node);
+	result = (t_list *)malloc(sizeof(t_list));
+	if (!result)
+		return (0);
+	if (content == 0)
+	{
+		result->content = 0;
+		result->next = 0;
+	}
+	else
+	{
+		result->content = content;
+		result->next = 0;
+	}
+	return (result);
 }
 
 // int	main()

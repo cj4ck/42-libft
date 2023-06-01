@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:25:33 by cjackows          #+#    #+#             */
-/*   Updated: 2022/06/21 22:35:03 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:09:54 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,19 @@
  * @param lst The address of a pointer to a node.
  * @param del The address of the function used to delete the content of the node.
  */
-void	ft_lstclear(t_list **lst, void (*del)(void *content))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	while (*lst)
+	t_list	*tmp;
+	t_list	*next;
+
+	if (!lst)
+		return ;
+	tmp = *lst;
+	while (tmp)
 	{
-		del((*lst)->content);
-		*lst = (*lst)->next;
+		next = tmp->next;
+		ft_lstdelone(tmp, del);
+		tmp = next;
 	}
+	*lst = 0;
 }

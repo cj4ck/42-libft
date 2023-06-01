@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:25:06 by cjackows          #+#    #+#             */
-/*   Updated: 2022/06/21 20:45:34 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:17:05 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@
  * @param lst The node to free.
  * @param del The address of the function used to delete the content.
  */
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
-{	
-	if (lst)
-	{
-		del(lst -> content);
-		free (lst);
-	}	
-}
+// void ft_lstdelone(t_list *lst, void (*del)(void*))
+// {
+// 	if (!lst)
+// 		return ;
+// 	del((void *)(lst->content));
+// 	free(lst);
+// }

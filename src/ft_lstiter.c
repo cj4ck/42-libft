@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjackows <cjackows@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:26:25 by cjackows          #+#    #+#             */
-/*   Updated: 2022/06/21 22:22:17 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:17:37 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@
  * @param lst  The address of a pointer to a node.
  * @param f  The address of the function used to iterate on the list.
  */
+// void	ft_lstiter(t_list *lst, void (*f)(void *))
+// {
+// 	t_list	*tmp;
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	while (lst)
-	{
-		f(lst -> content);
-		lst = lst -> next;
-	}
-}
+// 	if (!lst)
+// 		return ;
+// 	tmp = lst;
+// 	while (tmp)
+// 	{
+// 		f(tmp->content);
+// 		tmp = tmp->next;
+// 	}
+// }
