@@ -6,7 +6,7 @@
 /*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 17:00:15 by cjackows          #+#    #+#             */
-/*   Updated: 2023/06/01 09:51:51 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:23:37 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ NULL if the allocation fails.
  */
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
+	char	**res;
 	int		i;
 
-	result = (char **)malloc((ft_get_number_of_words(s, c) + 1) * sizeof(char *));
-	if (!result)
+	res = (char **)malloc((ft_get_number_of_words(s, c) + 1) * sizeof(char *));
+	if (!res)
 		return (0);
 	i = 0;
 	while (*s)
@@ -83,15 +83,15 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s)
 		{
-			if (!get_word(result, i, s, c))
+			if (!get_word(res, i, s, c))
 				return (0);
 			i++;
 		}
 		while (*s != c && *s)
 			s++;
 	}
-	result[i] = 0;
-	return (result);
+	res[i] = 0;
+	return (res);
 }
 
 // int	main()

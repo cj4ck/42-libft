@@ -6,7 +6,7 @@
 /*   By: cjackows <@student.42wolfsburg.de>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 03:24:51 by cjackows          #+#    #+#             */
-/*   Updated: 2023/06/01 10:11:58 by cjackows         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:24:21 by cjackows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
-int		ft_abs(int	num);
+int		ft_abs(int num);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(char *s1);
 
@@ -78,7 +78,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 // --- BONUS PART ---
-
 
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
