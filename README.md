@@ -6,7 +6,7 @@ This project is a library of useful functions implemented in C. It includes vari
 - `make clean` - Removes the object files generated during compilation.
 - `make fclean` - Removes the compiled library and the object files.
 - `make re` - Performs a clean recompilation of the library.
-- `make bonus` - Compiles the library including the bonus part.
+- `make bonus` - Compiles the library including the bonus part. (because this version is the latest, for original libft I suggest switching branch)
 #### To include the libft library in your project and use it in your code, follow these steps:
 1. Compile the libft library using the provided Makefile. This will generate the libft.a file.
 2. Place the libft.a file in a directory of your choice, for example, lib.
