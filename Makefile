@@ -1,3 +1,4 @@
+BASE		=	\033[38;5;
 RED			=	\033[38;5;160m
 RED_B		=	\033[48;5;160m
 DELETED		=	\033[48;5;160m[DELETED]\033[0m
@@ -30,8 +31,15 @@ SRC = ft_isalnum.c ft_isprint.c ft_memcmp.c ft_putchar_fd.c ft_split.c \
 OBJECTS = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 PROGRESS_WIDTH = 20
-PROGRESS_DONE_CHAR = 🟩
-PROGRESS_TODO_CHAR = ⬜️
+ifeq ($(shell uname), Linux)
+	OS			=	Linux
+	PROGRESS_DONE_CHAR = \#
+	PROGRESS_TODO_CHAR = -
+else
+	OS				=	Mac
+	PROGRESS_DONE_CHAR = 🟩
+	PROGRESS_TODO_CHAR = ⬜️
+endif
 CURRENT_PROGRESS = 0
 TOTAL_PROGRESS = $(words $(OBJECTS))
 
@@ -40,6 +48,7 @@ TOTAL_PROGRESS = $(words $(OBJECTS))
 all: ascii-art $(NAME)
 
 $(NAME): $(OBJECTS)
+	@echo "$(COMPILATION)Library \"$(NAME)\" compilation:"
 	@$(AR) $(NAME) $(OBJECTS)
 	@echo "$(INFO)$@ has been created$(RESET)"
 
@@ -50,9 +59,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(eval CURRENT_PROGRESS=$(shell echo $$(($(CURRENT_PROGRESS)+1))))
 	$(eval PERCENTAGE=$(shell echo $$(($(CURRENT_PROGRESS)*100/$(TOTAL_PROGRESS)))))
 	@if [ $(CURRENT_PROGRESS) -eq $(TOTAL_PROGRESS) ]; then \
-		printf "\r\033[48;5;40m[COMPILATION]\033[0m \033[38;5;40m$(PERCENTAGE)%% [$$(printf '%*s' $$(($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS))) | tr ' ' '$(PROGRESS_DONE_CHAR)')$$(printf '%*s' $$(($(PROGRESS_WIDTH)-($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS)))) | tr ' ' '$(PROGRESS_TODO_CHAR)')] $<\033[0m ✅                   \n"; \
+		printf "\033[2A\r\033[K\033[48;5;40m[COMPILATION]\033[0m \033[38;5;40m$(PERCENTAGE)%% [$$(printf '%*s' $$(($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS))) | tr ' ' '$(PROGRESS_DONE_CHAR)')$$(printf '%*s' $$(($(PROGRESS_WIDTH)-($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS)))) | tr ' ' '$(PROGRESS_TODO_CHAR)')] $<\033[0m ✅\n"; \
 	else \
-		printf "\r \033[48;5;40m[COMPILATION]\033[0m \033[38;5;51m$(PERCENTAGE)%% [$$(printf '%*s' $$(($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS))) | tr ' ' '$(PROGRESS_DONE_CHAR)')$$(printf '%*s' $$(($(PROGRESS_WIDTH)-($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS)))) | tr ' ' '$(PROGRESS_TODO_CHAR)')] $<"; \
+		printf "\033[2A\r\033[K\033[48;5;40m[COMPILATION]\033[0m \033[38;5;51m$(PERCENTAGE)%% [$$(printf '%*s' $$(($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS))) | tr ' ' '$(PROGRESS_DONE_CHAR)')$$(printf '%*s' $$(($(PROGRESS_WIDTH)-($(CURRENT_PROGRESS)*$(PROGRESS_WIDTH)/$(TOTAL_PROGRESS)))) | tr ' ' '$(PROGRESS_TODO_CHAR)')] $<$(RESET)\n\n"; \
 	fi
 	@sleep 0.01
 
@@ -79,64 +88,14 @@ git:
 
 ascii-art:
 	@clear
-	@echo "\033[38;5;51m   _____ ________           .____    ._____.    _____  __   "
-	@echo "\033[38;5;87m  /  |  |\\_____  \\          |    |   |__\\_ |___/ ____\\/  |_ "
-	@echo "\033[38;5;123m /   |  |_/  ____/   ______ |    |   |  || __ \\   __\\\\\   __\\"
-	@echo "\033[38;5;159m/    ^   /       \\  /_____/ |    |___|  || \\_\\ \\  |   |  |  "
-	@echo "\033[38;5;195m\\____   |\\_______ \\         |_______ \\__||___  /__|   |__|  "
-	@echo "\033[38;5;231m     |__|        \\/                 \\/       \\/  "
+	@echo "$(BASE)231m .                                                         -=━━━┓"
+	@echo "$(BASE)231m |    ▁▁▁▁▁ ▁▁▁▁▁▁▁▁           .▁▁▁▁    .▁▁▁▁▁.   ▁▁▁▁▁   ▁▁  ◹ ┃"
+	@echo "$(BASE)195m ┃   ╱  │  │╲▁▁▁▁▁  ╲          │    │   │▁▁╲▁ │▁▁╱ ▁▁▁▁╲▁╱  │▁  |"
+	@echo "$(BASE)195m ┃  ╱   │  │▁╱  ▁▁▁▁╱   ▁▁▁▁▁▁ │    │   │  │ ▁▁ ╲   ▁▁╲▁   ▁▁╱  '"
+	@echo "$(BASE)195m ┃ ╱    ^   ╱       ╲  ╱▁▁▁▁▁╱ │    │▁▁▁│  │ ╲▁╲ ╲  │   │  │  "
+	@echo "$(BASE)195m ┃ ╲▁▁▁▁   │╲▁▁▁▁▁▁▁ ╲         │▁▁▁▁▁▁▁ ╲▁▁│▁▁▁  ╱▁▁│   │▁▁│  "
+	@echo "$(BASE)159m ┃ ◺    │▁▁│        ╲╱                 ╲╱      ╲╱  "
+	@echo "$(BASE)159m ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[$(ITALIC)Made with ♥  by @cjackows$(RESET)$(BASE)159m]$(RESET)"; echo; echo;
 	@echo
 
 .PHONY: all clean fclean re bonus
-
-# SUPER SIMPLE AND EASY MAKEFILE
-# NAME = libft.a
-# CC = gcc
-# CFLAGS = -Wall -Wextra -Werror -I.
-
-# src_dir = src
-# obj_dir = obj
-
-# src = ft_isalnum.c ft_isprint.c ft_memcmp.c ft_putchar_fd.c ft_split.c \
-#       ft_strlcat.c ft_strncmp.c ft_substr.c ft_atoi.c ft_isalpha.c \
-#       ft_itoa.c ft_memcpy.c ft_putendl_fd.c ft_strchr.c ft_strlcpy.c \
-#       ft_strnstr.c ft_tolower.c ft_bzero.c ft_isascii.c \
-#       ft_memmove.c ft_putnbr_fd.c ft_strdup.c ft_strlen.c ft_strrchr.c \
-#       ft_toupper.c ft_calloc.c ft_isdigit.c ft_memchr.c ft_memset.c \
-#       ft_putstr_fd.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_striteri.c
-
-# bonus = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-#         ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-#         ft_lstmap.c ft_lstnew.c ft_lstsize.c
-
-# obj = $(addprefix $(obj_dir)/,$(src:.c=.o))
-# b_obj = $(addprefix $(obj_dir)/,$(bonus:.c=.o))
-
-# all: $(NAME)
-
-# $(NAME): ascii-art $(obj)
-# 	@ar rcs $(NAME) $(obj)
-# 	@echo '$(NAME) created.'
-
-# $(obj_dir)/%.o: $(src_dir)/%.c
-# 	@$(CC) $(CFLAGS) -c $< -o $@
-
-# ascii-art:
-# 	@echo "\033[38;5;51m   _____ ________           .____    ._____.    _____  __   "
-# 	@echo "\033[38;5;87m  /  |  |\\_____  \\          |    |   |__\\_ |___/ ____\\/  |_ "
-# 	@echo "\033[38;5;123m /   |  |_/  ____/   ______ |    |   |  || __ \\   __\\\\\   __\\"
-# 	@echo "\033[38;5;159m/    ^   /       \\  /_____/ |    |___|  || \\_\\ \\  |   |  |  "
-# 	@echo "\033[38;5;195m\\____   |\\_______ \\         |_______ \\__||___  /__|   |__|  "
-# 	@echo "\033[38;5;231m     |__|        \\/                 \\/       \\/  "
-
-# clean:
-# 	@rm -rf $(obj_dir)/*.o
-
-# fclean: clean
-# 	@rm -rf $(NAME)
-
-# re: fclean all
-
-# bonus: $(obj) $(b_obj)
-# 	@ar rcs $(NAME) $(obj) $(b_obj)
-# .PHONY: all clean fclean re bonus
